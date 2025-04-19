@@ -82,7 +82,9 @@
         android:paddingBottom="5dp"
         android:transitionGroup="true"
         android:contentDescription="@string/note_list_description"
-        tools:listitem="@layout/note_item_layout"/>
+        tools:listitem="@layout/note_item_layout">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

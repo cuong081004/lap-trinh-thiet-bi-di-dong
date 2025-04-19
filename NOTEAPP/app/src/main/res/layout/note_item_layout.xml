@@ -1,61 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="5dp">
 
-    
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/noteItemLayoutParent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:id="@+id/noteItemLayoutParent"
+        android:background="?attr/selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
-        android:background="?attr/selectableItemBackground"
+        android:padding="5dp"
         app:cardCornerRadius="13dp"
-        app:cardElevation="5dp"
-        android:padding="5dp">
-
+        app:cardElevation="5dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp">
 
-
-
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/noteItemTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/noteItemTitle"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="4dp"
-                android:padding="5dp"
                 android:ellipsize="end"
                 android:fontFamily="@font/google_sans_medium"
+                android:padding="5dp"
                 android:text="This is a title"
+                android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:textAlignment="textStart">
-                
+                android:textStyle="bold" />
 
-
-            </com.google.android.material.textview.MaterialTextView>
-
-            
-            
             <TextView
+                android:id="@+id/noteContentItem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/noteContentItem"
-                android:layout_below="@+id/noteItemTitle"
-                android:layout_marginTop="5dp"
+                android:layout_below="@id/noteItemTitle"
                 android:layout_marginStart="4dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginEnd="4dp"
                 android:layout_marginBottom="3dp"
                 android:ellipsize="end"
@@ -63,46 +53,30 @@
                 android:maxLines="12"
                 android:padding="5dp"
                 android:textSize="14sp"
-                tools:text="@string/some_text">
-
-
-
-            </TextView>
-
+                tools:text="@string/some_text" />
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/noteDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/noteDate"
-                android:layout_below="@+id/noteContentItem"
+                android:layout_below="@id/noteContentItem"
+                android:layout_alignParentEnd="true"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="4dp"
-                android:padding="5dp"
                 android:drawableStart="@drawable/ic_outline_calendar_today"
                 android:drawablePadding="6dp"
-
                 android:ellipsize="end"
                 android:fontFamily="@font/google_sans_regular"
+                android:padding="5dp"
                 android:text="dd - mm - yy"
-                app:drawableTint="@color/black"
-                android:layout_alignParentEnd="true"
+                android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="12sp"
-                android:textAlignment="textStart">
-
-
-
-            </com.google.android.material.textview.MaterialTextView>
-
-
-
+                app:drawableTint="@color/black" />
 
         </RelativeLayout>
 
-
-
     </com.google.android.material.card.MaterialCardView>
-    
-    
+
 </RelativeLayout>
