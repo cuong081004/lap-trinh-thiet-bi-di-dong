@@ -135,17 +135,17 @@
             app:fabSize="normal"
             app:useCompatPadding="false" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/chatFabText"
-        android:fontFamily="@font/google_sans_regular"
-        android:text="@string/add_note"
-        android:textColor="@color/white"
-        android:paddingStart="0dp"
-        android:paddingEnd="20dp"
-        android:layout_gravity="center_vertical"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Button" />
-</LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/chatFabText"
+            android:fontFamily="@font/google_sans_regular"
+            android:text="@string/add_note"
+            android:textColor="@color/white"
+            android:paddingStart="0dp"
+            android:paddingEnd="20dp"
+            android:layout_gravity="center_vertical"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Button" />
+    </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
