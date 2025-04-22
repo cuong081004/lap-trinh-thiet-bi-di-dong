@@ -1,28 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
     </data>
 
     <RelativeLayout
+        android:id="@+id/noteContentFragmentParent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/noteContentFragmentParent"
         tools:context="com.example.noteapp.fragments.SaveOrUpdateFragment">
 
 
         <RelativeLayout
+            android:id="@+id/toolBarFragmentNoteContent"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:id="@+id/toolBarFragmentNoteContent">
+            android:layout_marginTop="20dp">
 
 
             <ImageView
+                android:id="@+id/backBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_centerVertical="true"
                 android:layout_marginStart="15dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
@@ -30,26 +33,26 @@
                 android:paddingTop="5dp"
                 android:paddingEnd="5dp"
                 android:paddingBottom="5dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_round_arrow_back_24"
-                android:id="@+id/backBtn">
+                android:src="@drawable/ic_round_arrow_back_24">
 
 
             </ImageView>
 
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lastEdited"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/lastEdited"
-                android:paddingStart="13dp"
-                android:paddingEnd="13dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
                 android:layout_centerInParent="true"
+                android:background="@drawable/date_rounded"
                 android:ellipsize="end"
                 android:fontFamily="@font/google_sans_regular"
+                android:paddingStart="13dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="13dp"
+                android:paddingBottom="5dp"
                 android:text="Edited On"
+                android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 android:textStyle="bold">
@@ -59,17 +62,17 @@
 
 
             <ImageView
+                android:id="@+id/saveNote"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/saveNote"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:focusable="true"
-                android:clickable="true"
-                android:paddingBottom="5dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_baseline_save"
                 android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
                 android:layout_marginRight="15dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingBottom="5dp"
+                android:src="@drawable/ic_baseline_save"
                 app:tint="@color/black">
 
 
@@ -82,13 +85,14 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_above="@+id/bottomBar"
             android:layout_below="@+id/toolBarFragmentNoteContent">
 
 
             <androidx.core.widget.NestedScrollView
+                android:id="@+id/scrollView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/scrollView"
                 android:fillViewport="true">
 
 
@@ -99,38 +103,38 @@
 
 
                     <EditText
+                        android:id="@+id/etTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:background="@null"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="20dp"
                         android:layout_marginBottom="10dp"
-                        android:id="@+id/etTitle"
-                        android:inputType="none"
-                        android:textSize="22sp"
-                        android:importantForAutofill="no"
+                        android:background="@null"
                         android:fontFamily="@font/google_sans_medium"
-                        android:hint="Note Titel">
+                        android:hint="Note Titel"
+                        android:importantForAutofill="no"
+                        android:inputType="none"
+                        android:textSize="22sp">
 
 
                     </EditText>
 
 
                     <com.yahiaangelo.markdownedittext.MarkdownEditText
+                        android:id="@+id/etNoteContent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="22dp"
-                        android:layout_marginEnd="22dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginEnd="22dp"
                         android:background="@null"
                         android:fontFamily="@font/google_sans_regular"
                         android:hint="Note"
                         android:importantForAutofill="no"
                         android:inputType="none"
                         android:padding="10dp"
-                        android:textSize="16sp"
-                        android:id="@+id/etNoteContent">
+                        android:textSize="16sp">
 
 
                     </com.yahiaangelo.markdownedittext.MarkdownEditText>
@@ -143,11 +147,11 @@
 
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabColorPick"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/fabColorPick"
-                android:layout_margin="15dp"
                 android:layout_gravity="bottom|right"
+                android:layout_margin="15dp"
                 android:src="@drawable/ic_baseline_color_lens"
                 app:backgroundTint="@color/purple">
 
@@ -159,23 +163,21 @@
 
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
             android:id="@+id/bottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
             android:gravity="center_horizontal"
             android:orientation="horizontal"
-            android:layout_marginBottom="5dp"
-            android:visibility="gone"
-            android:layout_alignParentBottom="true">
+            android:visibility="gone">
 
 
             <com.yahiaangelo.markdownedittext.MarkdownStylesBar
+                android:id="@+id/styleBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/styleBar"
-                android:layout_margin="10dp"
                 android:elevation="5dp"
-                android:padding="5dp">
+                android:padding="0dp">
 
 
             </com.yahiaangelo.markdownedittext.MarkdownStylesBar>
