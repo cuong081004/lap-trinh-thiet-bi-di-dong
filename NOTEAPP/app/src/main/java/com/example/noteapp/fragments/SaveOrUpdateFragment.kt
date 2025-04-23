@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.core.os.bundleOf
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.setFragmentResult
@@ -67,6 +68,10 @@ class SaveOrUpdateFragment : Fragment(R.layout.fragment_save_or_update) {
         navController = Navigation.findNavController(view)
         val activity = activity as MainActivity
 
+        ViewCompat.setTransitionName(
+            contentBinding.noteContentFragmentParent,
+            "recyclerView_${args.note?.id}"
+        )
 
         contentBinding.backBtn.setOnClickListener {
             requireView().hideKeybroad()
@@ -156,6 +161,7 @@ class SaveOrUpdateFragment : Fragment(R.layout.fragment_save_or_update) {
             title.setText(note.title)
             content.renderMD(note.content)
             lastEdited.text=getString(R.string.edited_on, note.date)
+            color=note.color
             contentBinding.apply {
                 job.launch {
                     delay(10)
